@@ -1,0 +1,12 @@
+machine:
+	node:
+		version: v0.10.32
+
+dependencies:
+	override:
+		- npm isntall
+
+test:
+	override:
+		- npm run test
+		- npm run coveralls

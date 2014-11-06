@@ -4,7 +4,8 @@
   "description": "The world's best classical music metadata service.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test",
+    "coveralls" : "gulp-coveralls"
   },
   "repository": {
     "type": "git",
