@@ -1,10 +1,12 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-var logger = require('morgan');
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    pg = require('pg'),
+    connectionString =  process.env.DATABASE_URL || 'postgres://localhost:5432/classicaldb',
+    process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+    logger = require('morgan');
 
 var app = express();
+
 app.set('port', (process.env.PORT || 5000))
 
 //Load Middleware
@@ -19,4 +21,19 @@ app.use(bodyParser.json()); // parse application/json
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
+});
+
+
+app.get('/db', function (request, response) {
+  pg.connect(connectionString, function(err, client, done) {
+    client.query('SELECT * FROM catalog', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.send(result.rows); 
+      console.log(result.rows + "results");
+     }
+    });
+  });
 });
