@@ -1,7 +1,7 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     pg = require('pg'),
-    // connectionString =  process.env.DATABASE_URL || 'postgres://localhost:5432/classicaldb',
+    connectionString =  process.env.DATABASE_URL || 'postgres://localhost:5432/classicaldb',
     logger = require('morgan');
 
 var app = express();
