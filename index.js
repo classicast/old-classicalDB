@@ -7,7 +7,7 @@ var express = require('express'),
 
 var app = express();
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 5000));
 
 //Load Middleware
 app.use(express.static(__dirname + '/public')); //Serve static files
@@ -23,9 +23,11 @@ app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
 
+var connection = new pg.Client(connectionString);
+// Connect PostgreSQL
 
 app.get('/db', function (request, response) {
-  pg.connect(connectionString, function(err, client, done) {
+  connection.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM catalog', function(err, result) {
       done();
       if (err)
