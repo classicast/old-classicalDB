@@ -5,7 +5,7 @@ var express = require('express'),
     logger = require('morgan');
 
 var app = express();
-process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 app.set('port', (process.env.PORT || 5000));
 
