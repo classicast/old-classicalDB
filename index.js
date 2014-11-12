@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var pg = require('pg'),
 var connectionString = 'postgres://qqpxuatnftvyqz:ZfsEjCpkpGtLgwQ5fE1a1AyCCp@ec2-54-163-249-168.compute-1.amazonaws.com:5432/d4uj91gp54rn5k';
 var logger = require('morgan');
-var client = new pg.Client(connectionString);
 
 var app = express();
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -24,12 +23,20 @@ app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });
 
-client.connect();
+// var client = new pg.Client({
+//     user: "qqpxuatnftvyqz",
+//     password: " ZfsEjCpkpGtLgwQ5fE1a1AyCCp",
+//     database: "d4uj91gp54rn5k",
+//     port: 5432,
+//     host: "ec2-54-163-249-168.compute-1.amazonaws.com",
+//     ssl: true
+// }); 
+// client.connect();
 
-var query = client.query('SELECT * FROM cd');
-query.on('row', function(row) {
-  console.log(JSON.stringify(row));
-});
+// var query = client.query('SELECT * FROM cd');
+// query.on('row', function(row) {
+//   console.log(JSON.stringify(row));
+// });
 
 
 // app.get('/db', function (request, response) {
