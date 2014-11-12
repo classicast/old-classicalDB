@@ -1,11 +1,11 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     pg = require('pg'),
-    connectionString =  process.env.DATABASE_URL || 'postgres://localhost:5432/classicaldb',
-    process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+    // connectionString =  process.env.DATABASE_URL || 'postgres://localhost:5432/classicaldb',
     logger = require('morgan');
 
 var app = express();
+process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 
 app.set('port', (process.env.PORT || 5000));
 
