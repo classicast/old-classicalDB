@@ -19,18 +19,17 @@ if (!global.hasOwnProperty('db')) {
   global.db = {
     Sequelize: Sequelize,
     sequelize: sequelize,
-    cd: sequelize.import(__dirname + '/' + cd);
-    composition: sequelize.import(__dirname + '/' + composition);
-    labelCode: sequelize.import(__dirname + '/' + labelCode);
-    label: sequelize.import(__dirname + '/' + label);
-    catalog: sequelize.import(__dirname + '/' + catalog);
-    movement: sequelize.import(__dirname + '/' + movement);
-    performance: sequelize.import(__dirname + '/' + performance);
-    person: sequelize.import(__dirname + '/' + person);
-    recording: sequelize.import(__dirname + '/' + recording);
-    soloist: sequelize.import(__dirname + '/' + soloist);
-    track: sequelize.import(__dirname + '/' + track);
-
+    cd: sequelize.import(__dirname + '/cd'),
+    composition: sequelize.import(__dirname + '/composition'),
+    labelCode: sequelize.import(__dirname + '/labelCode'),
+    label: sequelize.import(__dirname + '/label'),
+    catalog: sequelize.import(__dirname + '/catalog'),
+    movement: sequelize.import(__dirname + '/movement'),
+    performance: sequelize.import(__dirname + '/performance'),
+    person: sequelize.import(__dirname + '/person'),
+    recording: sequelize.import(__dirname + '/recording'),
+    soloist: sequelize.import(__dirname + '/soloist'),
+    track: sequelize.import(__dirname + '/track')
   };
 
   global.db.track.hasMany(global.db.cd);
@@ -68,9 +67,6 @@ if (!global.hasOwnProperty('db')) {
 
   global.db.person.hasOne(global.db.composition, {foreignKey: 'composition_composer'});
   global.db.composition.belongsTo(global.db.person, {foreignKey: 'composition_composer'});
-
-  global.db.composition.hasOne(global.db.movement);
-  global.db.movement.belongsTo(global.db.composition);
 
   global.db.movement.hasMany(global.db.composition);
   global.db.composition.belongsTo(global.db.movement);

@@ -2,14 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var pg = require('pg');
-
-
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var http = require('http');
+var app = express();
 var logger = require('morgan');
 
-var app = express();
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 app.set('port', (process.env.PORT || 5000))
-app.set('db', require('./models'));
+app.set('db', require('./models/modelsIndex'));
 
 //Load Middleware
 app.use(express.static(__dirname + '/public')); //Serve static files
@@ -21,9 +21,9 @@ app.use(bodyParser.json()); // parse application/json
 // app.get('/api/userCheck', handlers.userCheck);
 // app.get('/api/fetchData', handlers.fetchData);
 
-// app.listen(app.get('port'), function() {
-//   console.log("Node app is running at localhost:" + app.get('port'))
-// });
+app.get('/', function(req, res) {
+  res.sendFile('/public/index.html');
+});
 
 var client = new pg.Client({
     user: "qqpxuatnftvyqz",
@@ -33,6 +33,8 @@ var client = new pg.Client({
     host: "ec2-54-163-249-168.compute-1.amazonaws.com",
     ssl: true
 }); 
+
+// client.connect();
 
 db.sequelize.sync({force: true}).complete(function(err) {
   if (err) {
