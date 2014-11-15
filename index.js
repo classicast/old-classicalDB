@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
 
 var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhost/classicalDB');
 
-client.connect();
+// client.connect();
 
 db.sequelize.sync({force: true}).complete(function(err) {
   if (err) {
