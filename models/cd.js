@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var CD = sequelize.define('CD', {
-    cd_ name: DataTypes.STRING,
+    cd_name: DataTypes.STRING,
     cd_release_date: DataTypes.STRING,
     cd_country: DataTypes.STRING,
     cd_total_discs: DataTypes.STRING,
