@@ -25,16 +25,9 @@ app.get('/', function(req, res) {
   res.sendFile('/public/index.html');
 });
 
-var client = new pg.Client({
-    user: "qqpxuatnftvyqz",
-    password: " ZfsEjCpkpGtLgwQ5fE1a1AyCCp",
-    database: "d4uj91gp54rn5k",
-    port: 5432,
-    host: "ec2-54-163-249-168.compute-1.amazonaws.com",
-    ssl: true
-}); 
+var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhost/classicalDB');
 
-// client.connect();
+client.connect();
 
 db.sequelize.sync({force: true}).complete(function(err) {
   if (err) {
