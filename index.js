@@ -37,11 +37,11 @@ db.sequelize.sync({force: false}).complete(function(err) {
 });
 
 app.get('/', function(req, res) {
-  sequelize.query('SELECT * FROM catalogs').success(function(rows) {
-    console.log("catalog data", rows);
+  sequelize.query('SELECT * FROM catalogs').success(function(catalogs) {
+    console.log("catalog data", catalogs);
+    res.sendFile('/public/index.html');
   })
   .error(function(err) {
     console.log(err);
   });
-  res.sendFile('/public/index.html');
 });
