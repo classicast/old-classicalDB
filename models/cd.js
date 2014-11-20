@@ -8,6 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     cd_cover_image: DataTypes.STRING,
     cd_booklet: DataTypes.STRING,
     cd_booklet_text: DataTypes.STRING,
-  }, {underscored: true});
+  },{underscored: true, timestamps: false});
   return CD;
 };

@@ -5,6 +5,6 @@ module.exports = function(sequelize, DataTypes) {
     person_birthdate: DataTypes.DATE,
     person_birth_country: DataTypes.STRING,
     person_birth_city: DataTypes.STRING
-  });
+  },{underscored: true, timestamps: false});
   return person;
 };

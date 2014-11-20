@@ -23,6 +23,9 @@ app.use(bodyParser.json()); // parse application/json
 
 app.get('/', function(req, res) {
   res.sendFile('/public/index.html');
+  sequelize.query('SELECT * FROM "CDs"').success(function(rows) {
+    console.log("cd data", rows);
+  });
 });
 
 var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhost/classicalDB');

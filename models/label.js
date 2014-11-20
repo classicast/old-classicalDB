@@ -3,6 +3,6 @@ module.exports = function(sequelize, DataTypes) {
     label_name: DataTypes.INTEGER,
     label_defunct_date: DataTypes.DATE,
     label_country: DataTypes.STRING,
-  });
+  },{underscored: true, timestamps: false});
   return label;
 };
