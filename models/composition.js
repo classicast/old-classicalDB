@@ -5,6 +5,6 @@ module.exports = function(sequelize, DataTypes) {
     composition_setting: DataTypes.STRING,
     composition_genre: DataTypes.STRING,
     composition_total_movements: DataTypes.INTEGER
-  });
+  },{underscored: true, timestamps: false});
   return composition;
 };

@@ -4,6 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     recording_date: DataTypes.DATE,
     recording_location: DataTypes.STRING,
     recording_matrix_num: DataTypes.STRING
-  });
+  },{underscored: true, timestamps: false});
   return recording;
 };

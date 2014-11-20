@@ -4,6 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     movement_key: DataTypes.STRING,
     movement_tempo: DataTypes.STRING,
     movement_genre: DataTypes.STRING
-  });
+  },{underscored: true, timestamps: false});
   return movement;
 };
