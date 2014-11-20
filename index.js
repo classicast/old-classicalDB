@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/db', function(req, res) {
-  sequelize.query('SELECT * FROM catalogs').success(function(catalogs) {
+  db.sequelize.query('SELECT * FROM catalogs').success(function(catalogs) {
     console.log("catalog data", catalogs);
     res.send(catalogs);
   })
