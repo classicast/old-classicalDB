@@ -21,12 +21,6 @@ app.use(bodyParser.json()); // parse application/json
 // app.get('/api/userCheck', handlers.userCheck);
 // app.get('/api/fetchData', handlers.fetchData);
 
-app.get('/', function(req, res) {
-  res.sendFile('/public/index.html');
-  sequelize.query('SELECT * FROM "CDs"').success(function(rows) {
-    console.log("cd data", rows);
-  });
-});
 
 var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhost/classicalDB');
 
@@ -40,4 +34,14 @@ db.sequelize.sync({force: true}).complete(function(err) {
       console.log('Express working and listening');
     });
   };
+});
+
+app.get('/', function(req, res) {
+  sequelize.query('SELECT * FROM catalogs').success(function(rows) {
+    console.log("catalog data", rows);
+  })
+  .error(function(err) {
+    console.log(err);
+  });
+  res.sendFile('/public/index.html');
 });
