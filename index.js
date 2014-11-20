@@ -26,7 +26,7 @@ var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhos
 
 // client.connect();
 
-db.sequelize.sync({force: true}).complete(function(err) {
+db.sequelize.sync({force: false}).complete(function(err) {
   if (err) {
     throw err[0]
   } else {
