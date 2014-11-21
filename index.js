@@ -23,7 +23,7 @@ app.use(bodyParser.json()); // parse application/json
 // app.get('/api/fetchData', handlers.fetchData);
 
 
-var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhost/classicalDB');
+var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhost/classicaldb');
 
 // client.connect();
 
@@ -55,13 +55,14 @@ app.get('/db', function(req, res) {
 router.route('/form')
 
 .post(function(req,res){
-  var label = req.body.label;
-  var labelDefunct = req.body.defunct;
-  var labelCountry = req.body.country;
-  label.build({  
-    label_name: label})
-    .save().success(res.send(labels))
-    .error(function(err) {
-    console.log(err);
-  });
+  // var label = req.body.label;
+  // var labelDefunct = req.body.defunct;
+  // var labelCountry = req.body.country;
+  // label.build({  
+  //   label_name: label})
+  //   .save().success(res.send(labels))
+  //   .error(function(err) {
+  //   console.log(err);
+  //   });
+  console.log(req.body.label);
 });

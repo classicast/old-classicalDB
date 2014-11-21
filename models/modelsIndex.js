@@ -14,6 +14,7 @@ if (!global.hasOwnProperty('db')) {
 
   } else {
     console.log('error: no DATABASE_URL');
+    var sequelize = new Sequelize('postgres://localhost/classicaldb');
   }
 
   global.db = {
