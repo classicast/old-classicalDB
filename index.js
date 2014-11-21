@@ -5,6 +5,7 @@ var pg = require('pg');
 var http = require('http');
 var app = express();
 var logger = require('morgan');
+var router = express.Router();
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -38,7 +39,7 @@ db.sequelize.sync({force: false}).complete(function(err) {
 
 app.get('/', function(req, res) {
   console.log("sent!");
-  res.sendFile('/public/dbTestPage.html');
+  res.sendFile('/public/index.html');
 });
 
 app.get('/db', function(req, res) {
@@ -47,6 +48,22 @@ app.get('/db', function(req, res) {
     res.send(catalogs);
   })
   .error(function(err) {
+    console.log(err);
+  });
+});
+
+router.route('/form')
+
+.post(function(req,res){
+  var label = req.body.label;
+  var labelDefunct = req.body.defunct;
+  var labelCountry = req.body.country;
+  label.build({  
+    label_name: label,
+    label_defunct_date: labelDefunct,
+    label_country: labelCountry,})
+    .save().success(res.send(labels))
+    .error(function(err) {
     console.log(err);
   });
 });
