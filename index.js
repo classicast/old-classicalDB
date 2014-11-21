@@ -59,9 +59,7 @@ router.route('/form')
   var labelDefunct = req.body.defunct;
   var labelCountry = req.body.country;
   label.build({  
-    label_name: label,
-    label_defunct_date: labelDefunct,
-    label_country: labelCountry,})
+    label_name: label})
     .save().success(res.send(labels))
     .error(function(err) {
     console.log(err);
