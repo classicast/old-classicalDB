@@ -16,11 +16,6 @@ var FluxProduct = React.createClass({
     FluxCartActions.updateCartVisible(true);
   },
 
-  // Select product variation via Actions
-  selectVariant: function(event){
-    FluxCartActions.selectProduct(event.target.value);
-  },
-
   // Render product View
   render: function() {
     var ats = (this.props.selected.sku in this.props.cartitems) ?
