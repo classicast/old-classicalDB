@@ -15,7 +15,7 @@ app.set('db', require('./models/modelsIndex'));
 //Load Middleware
 app.use(express.static(__dirname + '/public')); //Serve static files
 app.use(logger('short')); //Log all requests except static file requests
-app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 
 //API Route Handling
@@ -27,7 +27,7 @@ var client = new pg.Client(process.env.DB_CONNECTION_STR || 'postgres://localhos
 
 // client.connect();
 
-db.sequelize.sync({force: false}).complete(function(err) {
+db.sequelize.sync({force: true}).complete(function(err) {
   if (err) {
     throw err[0]
   } else {
@@ -43,26 +43,25 @@ app.get('/', function(req, res) {
 });
 
 app.get('/db', function(req, res) {
-  db.sequelize.query('SELECT * FROM catalogs').success(function(catalogs) {
-    console.log("catalog data", catalogs);
-    res.send(catalogs);
+  db.sequelize.query('SELECT * FROM labels').success(function(labels) {
+    console.log("catalog data", labels);
+    res.send(labels);
   })
   .error(function(err) {
     console.log(err);
   });
 });
 
-router.route('/form')
-
-.post(function(req,res){
-  // var label = req.body.label;
-  // var labelDefunct = req.body.defunct;
-  // var labelCountry = req.body.country;
-  // label.build({  
-  //   label_name: label})
-  //   .save().success(res.send(labels))
-  //   .error(function(err) {
-  //   console.log(err);
-  //   });
-  console.log(req.body.label);
+app.post('/', function(req,res){
+  var labelName = req.body.labelName;
+  var labelCountry = req.body.labelCountry;
+  var labelDefunct = req.body.labelDefunct;
+  db.label.create({  
+    label_name: labelName,
+    label_defunct_date: labelDefunct,
+    label_country: labelCountry})
+  .success(res.send(db.labels))
+  .error(function(err) {
+    console.log("nope", err);
+  });
 });

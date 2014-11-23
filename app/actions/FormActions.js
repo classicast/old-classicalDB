@@ -6,13 +6,13 @@ var FormActions = {
 
   addLabel: function(labelName) {
     AppDispatcher.handleAction({
-      actionType: FluxCartConstants.LABEL_ADD,
+      actionType: Constants.ADD_LABEL,
       labelName: labelName
     })
   },
   addLabelCode: function(labelCode) {
     AppDispatcher.handleAction({
-      actionType: FluxCartConstants.LABEL_ADD,
+      actionType: Constants.ADD_LABELCODE,
       labelCode: labelCode
     })
   },
