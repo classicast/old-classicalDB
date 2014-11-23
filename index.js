@@ -53,7 +53,7 @@ app.get('/db', function(req, res) {
 });
 
 app.post('/', function(req,res){
-  var labelName = req.body.label;
+  var labelName = req.body.labelName;
   var labelCountry = req.body.labelCountry;
   var labelDefunct = req.body.labelDefunct;
   db.label.create({  

@@ -1,0 +1,22 @@
+{
+  "name": "classicalDB",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/classicalmusic/classicalDB",
+  "authors": [
+    "C. Moss <caly.moss@gmail.com>"
+  ],
+  "description": "crowd sourced classical music metadata platform",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
