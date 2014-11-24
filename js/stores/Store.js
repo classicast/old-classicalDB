@@ -1,8 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var Constants = require('../constants/Constants');
-// var ChatMessageUtils = require('../utils/ChatMessageUtils');
 var EventEmitter = require('events').EventEmitter;
-// var ThreadStore = require('../stores/ThreadStore');
 var assign = require('object-assign');
 
 var ActionTypes = Constants.ActionTypes;
@@ -17,9 +15,6 @@ var Store = assign({}, EventEmitter.prototype, {
     this.emit(CHANGE_EVENT);
   },
 
-  /**
-   * @param {function} callback
-   */
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
@@ -32,10 +27,6 @@ var Store = assign({}, EventEmitter.prototype, {
     return _labels;
   },
 
-  /**
-   * @param {string} threadID
-   */
-
 });
 
 Store.dispatchToken = AppDispatcher.register(function(payload) {
@@ -47,11 +38,6 @@ Store.dispatchToken = AppDispatcher.register(function(payload) {
     case ActionTypes.ADD_LABEL:
       newestLabel = action.label;
       _labels[newestLabel] = newestLabel;
-      Store.emitChange();
-      break;
-
-    case ActionTypes.RECEIVE_LABELS:
-      _addMessages(action.rawMessages);
       Store.emitChange();
       break;
 
