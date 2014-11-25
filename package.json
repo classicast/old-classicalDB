@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "coveralls": "gulp coveralls",
-    "start": "watchify -o js/bundle.js -v -d .",
-    "build": "NODE_ENV=production browserify . | uglifyjs -cm > js/bundle.min.js",
+    "coveralls": "gulp coveralls"
   },
   "repository": {
     "type": "git",
@@ -28,37 +26,32 @@
   "homepage": "https://github.com/classicalmusic/classicalDB",
   "dependencies": {
     "body-parser": "^1.9.2",
+    "compression": "^1.2.0",
     "event-emitter": "^0.3.1",
     "express": "^4.10.1",
     "flux": "^2.0.1",
     "jquery": "^2.1.1",
-    "mysql": "^2.5.3",
-    "pg": "^3.6.3",
+    "pg": "^4.0.0",
     "sequelize": "^2.0.0-rc2",
     "keymirror": "~0.1.0",
     "object-assign": "^1.0.0",
-    "react": "^0.12.0"
+    "react": "^0.12.0",
+    "serve-favicon": "^2.1.7"
   },
   "devDependencies": {
-    "chai": "^1.9.2",
-    "gulp-coveralls": "^0.1.3",
-    "gulp-istanbul": "^0.3.1",
-    "gulp-mocha": "^1.1.0",
-    "mocha": "^1.21.4",
-    "morgan": "^1.4.1",
-    "gulp": "^3.8.8",
-    "gulp-connect": "^2.0.6",
-    "vinyl-source-stream": "^1.0.0",
     "browserify": "^6.2.0",
     "envify": "^3.0.0",
     "reactify": "^0.15.2",
     "uglify-js": "~2.4.15",
-    "watchify": "^2.1.1"
-  },
-    "browserify": {
-    "transform": [
-      "reactify",
-      "envify"
-    ]
+    "watchify": "^2.1.1",
+    "gulp": "^3.8.8",
+    "gulp-connect": "^2.0.6",
+    "gulp-coveralls": "^0.1.3",
+    "gulp-istanbul": "^0.3.1",
+    "gulp-mocha": "^1.1.0",
+    "gulp-rename": "^1.2.0",
+    "vinyl-source-stream": "^1.0.0",
+    "lodash": "^2.4.1",
+    "morgan": "^1.4.1"
   }
 }

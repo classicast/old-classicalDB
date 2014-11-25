@@ -5,25 +5,25 @@ A crowd-sourced classical music metadata platform.
 [![Circle CI](https://circleci.com/gh/classicalmusic/classicalDB.svg?style=shield&circle-token=47bd3ea75dc1ca09812772093c194e1aa608768f)](https://circleci.com/gh/classicalmusic/classicalDB)
 [![Coverage Status](http://img.shields.io/coveralls/classicalmusic/classicalDB.svg)](https://coveralls.io/r/classicalmusic/classicalDB?branch=master)
 
-<!-- ## Project Structure
+## Project Structure
 
-Overview
+<!-- Overview
 ```
-  ├── client
-  │   ├── app                 - All of our app specific components go in here
-  │   ├── assets              - Custom assets: fonts, images, etc…
-  │   ├── components          - Our reusable components, non-specific to to our app
-  │
-  ├── e2e                     - Our protractor end to end tests
-  │
-  └── server
-  ├── api                 - Our apps server api
-  ├── auth                - For handling authentication with different auth strategies
-  ├── components          - Our reusable or app-wide components
-  ├── config              - Where we do the bulk of our apps configuration
-  │   └── local.env.js    - Keep our environment variables out of source control
-  │   └── environment     - Configuration specific to the node environment
-  └── views               - Server rendered views
+├── client
+│   ├── app                 - All of our app specific components go in here
+│   ├── assets              - Custom assets: fonts, images, etc…
+│   ├── components          - Our reusable components, non-specific to to our app
+│
+├── e2e                     - Our protractor end to end tests
+│
+└── server
+├── api                 - Our apps server api
+├── auth                - For handling authentication with different auth strategies
+├── components          - Our reusable or app-wide components
+├── config              - Where we do the bulk of our apps configuration
+│   └── local.env.js    - Keep our environment variables out of source control
+│   └── environment     - Configuration specific to the node environment
+└── views               - Server rendered views
 
 An example client component in `client/app`
 
