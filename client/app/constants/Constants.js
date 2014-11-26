@@ -4,9 +4,8 @@ var keyMirror = require('keymirror');
 module.exports = {
 
   ActionTypes: keyMirror({
-    ADD_LABEL: null,
+    CREATE_LABEL: null,
     RECEIVE_LABELS: null,
-    RECEIVE_CREATED_LABEL: null
   }),
 
   PayloadSources: keyMirror({

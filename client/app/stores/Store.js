@@ -1,5 +1,3 @@
-'use strict';
-
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var Constants = require('../constants/Constants');
 var EventEmitter = require('events').EventEmitter;
@@ -9,6 +7,14 @@ var ActionTypes = Constants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
 var _labels = {};
+
+function _addLabels(labels) {
+  labels.forEach(function(label) {
+    if (!_labels[label]) {
+      _labels[label] = label; 
+    }
+  });
+};
 
 
 var Store = assign({}, EventEmitter.prototype, {
@@ -20,7 +26,7 @@ var Store = assign({}, EventEmitter.prototype, {
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
-
+  
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
@@ -31,15 +37,21 @@ var Store = assign({}, EventEmitter.prototype, {
 
 });
 
-Store.dispatchToken = AppDispatcher.register(function(payload) {
+AppDispatcher.register(function(payload) {
   var action = payload.action;
   var newestLabel;
 
   switch(action.type) {
 
-    case ActionTypes.ADD_LABEL:
+    case ActionTypes.CREATE_LABEL:
       newestLabel = action.label;
-      _labels[newestLabel] = newestLabel;
+      _labels[newestLabel] = newestLabel; //this probably requires a helper function to compile the entire actual
+      // message from all the parts of the form
+      Store.emitChange();
+      break;
+
+    case ActionTypes.RECEIVE_LABELS:
+      _addLabels(action.labels);
       Store.emitChange();
       break;
 

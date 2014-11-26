@@ -38,7 +38,6 @@ var User = app.get('models').User;
 */
 app.set('database', require('./config/database'));
 var database = app.get('database');
-
 //Configure express and routes
 require('./config/express')(app);
 require('./routes')(app);

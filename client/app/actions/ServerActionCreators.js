@@ -7,12 +7,6 @@ var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
 
-  receiveCreatedLabel: function(label) {
-    AppDispatcher.handleServerAction({
-      type: ActionTypes.RECEIVE_LABEL,
-      label: label
-    });
-  },
   receiveLabels: function(labels) {
     AppDispatcher.handleServerAction({
       type: ActionTypes.RECEIVE_LABELS,

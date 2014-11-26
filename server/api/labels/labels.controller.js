@@ -40,13 +40,13 @@ exports.show = function(req, res) {
 // Creates a new label in the DB.
 exports.create = function(req, res) {
   var labelName = req.body.labelName;
-  var labelCountry = req.body.labelCountry;
-  var labelDefunct = req.body.labelDefunct;
+  // var labelCountry = req.body.labelCountry;
+  // var labelDefunct = req.body.labelDefunct;
 
   Label.create({
     label_name: labelName,
-    label_defunct_date: labelDefunct,
-    label_country: labelCountry
+    // label_defunct_date: labelDefunct,
+    // label_country: labelCountry
   })
   .then(function(label) {
     res.send(label);

@@ -3,7 +3,7 @@
 
 var React       = require('react');
 var App         = require('./components/app/app.component.jsx');
-// var WebAPIUtils = require('./utils/WebAPIUtils');
+var WebAPIUtils = require('./utils/WebAPIUtils');
 
 // Load API Call
 // WebAPIUtils.getAllLabels();
