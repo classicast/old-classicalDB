@@ -11,7 +11,7 @@
 
 // var _ = require('lodash');
 var app = require('../../app');
-var Label = app.get('database').Label;
+var Label = app.get('database').getModel;
 
 // Get list of labels
 exports.index = function(req, res) {

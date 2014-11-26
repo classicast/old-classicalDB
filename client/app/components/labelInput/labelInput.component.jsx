@@ -13,7 +13,11 @@ var LabelInput = React.createClass({
 
   render: function() {
     return (
-      <LabelArea className="label-input" name="label" value={this.state.label} onChange={this._onChange} onKeyDown={this._onKeyDown} />
+      <textarea className="label-input"
+      name="label" 
+      value={this.state.label} 
+      onChange={this._onChange} 
+      onKeyDown={this._onKeyDown} />
     );
   },
 
@@ -26,7 +30,11 @@ var LabelInput = React.createClass({
       event.preventDefault();
       var label = this.state.label.trim();
       if (label) {
-        ActionCreators.addLabel(label);
+        console.log(label);
+        ActionCreators.createLabel(label);
+      }
+      else {
+        console.log("no label");
       }
       this.setState({label: ''});
     }
