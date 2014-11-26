@@ -30,7 +30,7 @@ var LabelInput = React.createClass({
       event.preventDefault();
       var label = this.state.label.trim();
       if (label) {
-        console.log(label);
+        console.log("label content!", label);
         ActionCreators.createLabel(label);
       }
       else {

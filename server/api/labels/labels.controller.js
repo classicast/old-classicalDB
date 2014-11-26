@@ -11,7 +11,7 @@
 
 // var _ = require('lodash');
 var app = require('../../app');
-var Label = app.get('database').getModel;
+var Label = app.get('database').getModel('labels/label.model');
 
 // Get list of labels
 exports.index = function(req, res) {
@@ -39,21 +39,23 @@ exports.show = function(req, res) {
 
 // Creates a new label in the DB.
 exports.create = function(req, res) {
-  var labelName = req.body.labelName;
-  // var labelCountry = req.body.labelCountry;
-  // var labelDefunct = req.body.labelDefunct;
+  var body = req.body;
+  var labelName = body.label;
+  // var labelDefunct = body.labelDefunct;
+  // var labelCountry = body.labelCountry;
 
   Label.create({
     label_name: labelName,
-    // label_defunct_date: labelDefunct,
-    // label_country: labelCountry
+    label_defunct_date: 1997,
+    label_country: 'Slovakia'
   })
-  .then(function(label) {
-    res.send(label);
+  .then(function(labelName) {
+    res.send(labelName);
   })
   .catch(function(err) {
     console.log('Error: ', err);
   });
+  // res.send(labelName);
 };
 
 // // Updates an existing label in the DB.

@@ -4,7 +4,6 @@
 var React       = require('react');
 var App         = require('./components/app/app.component.jsx');
 var WebAPIUtils = require('./utils/WebAPIUtils');
-window.React = React; // export for http://fb.me/react-devtools
 
 // Load API Call
 // WebAPIUtils.getAllLabels();

@@ -5,7 +5,7 @@ module.exports = {
 
   getAllLabels: function() {
     request
-    .get('/api/labels')
+    .get('api/labels')
     .end(function(error, res){
       // ServerActionCreators.receiveLabels(res);
       if(error) {
@@ -18,8 +18,8 @@ module.exports = {
   createLabel: function(label) {
     // post to server/db
    request
-    .post('/api/labels')
-    .send(label)
+    .post('api/labels')
+    .send({label:label, labelCountry: 'Slovakia', labelDefunct: 1997})
     .end(function(error, res){
       if(error) {
         throw error;
@@ -27,5 +27,4 @@ module.exports = {
       console.log("success!", res);
     });
   }
-
 };
