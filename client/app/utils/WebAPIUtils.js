@@ -1,5 +1,5 @@
 var ServerActionCreators = require('../actions/ServerActionCreators');
-var superagent = require('superagent');
+var request = require('superagent');
 
 module.exports = {
 
@@ -19,6 +19,7 @@ module.exports = {
     // post to server/db
    request
     .post('api/labels')
+    .send({label:label, labelCountry: 'Slovakia', labelDefunct: 1997})
     .end(function(error, res){
       if(error) {
         throw error;
@@ -26,5 +27,4 @@ module.exports = {
       console.log("success!", res);
     });
   }
-
 };

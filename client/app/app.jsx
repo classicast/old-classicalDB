@@ -9,4 +9,6 @@ var WebAPIUtils = require('./utils/WebAPIUtils');
 // WebAPIUtils.getAllLabels();
 
 //Render App Component
-React.render(<App />, document.getElementById('app'));
+React.render(<App />, 
+  document.getElementById('react')
+);
