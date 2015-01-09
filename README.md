@@ -3,9 +3,11 @@ ClassicalDB
 [![Circle CI](https://circleci.com/gh/classicalmusic/classicalDB.svg?style=shield&circle-token=47bd3ea75dc1ca09812772093c194e1aa608768f)](https://circleci.com/gh/classicalmusic/classicalDB)
 [![Coverage Status](http://img.shields.io/coveralls/classicalmusic/classicalDB.svg)](https://coveralls.io/r/classicalmusic/classicalDB?branch=master)
 
-ClassicalDB is a crowd-sourced classical music metadata platform under active development.
+**ClassicalDB is a crowd-sourced classical music metadata platform under active development.
 Our goal is to capture all metadata relevant to classical music, and expose it as an
-easy to use API for other application developers. ClassicalDB consists of 2 major components:
+easy to use API for other application developers.**
+
+ClassicalDB consists of 2 major components:
 
 1. A Crowd-sourceed injest/digest system that allows classical music aficionados
 to contribute metadata, and improve the quality and accuracy of existing data.
