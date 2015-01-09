@@ -1,9 +1,42 @@
 ClassicalDB
 ==============
-A crowd-sourced classical music metadata platform.
-
 [![Circle CI](https://circleci.com/gh/classicalmusic/classicalDB.svg?style=shield&circle-token=47bd3ea75dc1ca09812772093c194e1aa608768f)](https://circleci.com/gh/classicalmusic/classicalDB)
 [![Coverage Status](http://img.shields.io/coveralls/classicalmusic/classicalDB.svg)](https://coveralls.io/r/classicalmusic/classicalDB?branch=master)
+
+ClassicalDB is a crowd-sourced classical music metadata platform under active development.
+Our goal is to capture all metadata relevant to classical music, and expose it as an
+easy to use API for other application developers. ClassicalDB consists of 2 major components:
+
+1. A Crowd-sourceed injest/digest system that allows classical music aficionados
+to contribute metadata, and improve the quality and accuracy of existing data.
+
+2. A well-defined, easy to use API that other applications can use for retrieving
+classical music metadata.
+
+### Use Cases
+
+Here are some example queries that ClassicalDB will accomodate that existing music
+metadata services cannot:
+
+1. Find all recordings of the 2nd movement of Beethoven's 5th Symphony conducted
+by Wilhelm Furtwängler.
+
+2. Find all the different masterings of a single recording (a given recording may be
+mastered in numerous ways and released by different labels).
+
+3. Find all recordings of Chopin's Military Polonaise by second generation students
+of Liszt.
+
+By enabling these types of queries, ClassicalDB will enable a new generation of
+classical music applications like streaming services, library management/tagging apps,
+and relationship data visualization tools.
+
+## Roadmap
+
+### Version 0.1
+
+
+
 
 ## Project Structure
 
@@ -70,16 +103,16 @@ FLUX / REACT ARCHITECTURE
 
 ``` -->
 
-# Local Dependencies
+## Local Dependencies
 
 
-# Contributing
+## Contributing
 
 
-# Release History
+## Release History
 
 
-# Known Issues
+## Known Issues
 
 
-# Backlog
+## Backlog
