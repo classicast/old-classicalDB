@@ -1,11 +1,98 @@
 ClassicalDB
 ==============
-A crowd-sourced classical music metadata platform.
-
 [![Circle CI](https://circleci.com/gh/classicalmusic/classicalDB.svg?style=shield&circle-token=47bd3ea75dc1ca09812772093c194e1aa608768f)](https://circleci.com/gh/classicalmusic/classicalDB)
 [![Coverage Status](http://img.shields.io/coveralls/classicalmusic/classicalDB.svg)](https://coveralls.io/r/classicalmusic/classicalDB?branch=master)
 
+**ClassicalDB is a crowd-sourced classical music metadata platform under active development.
+Our goal is to capture all metadata relevant to classical music, and expose it as an
+easy to use API for other application developers.**
+
+ClassicalDB consists of 2 major components:
+
+1. A Crowd-sourceed injest/digest system that allows classical music aficionados
+to contribute metadata, and improve the quality and accuracy of existing data.
+
+2. A well-defined, easy to use API that other applications can use for retrieving
+classical music metadata.
+
+### Use Cases
+
+Here are some example queries that ClassicalDB will accomodate that existing music
+metadata services cannot:
+
+1. Find all recordings of the 2nd movement of Beethoven's 5th Symphony conducted
+by Wilhelm Furtwängler.
+
+2. Find all the different masterings of a single recording (a given recording may be
+mastered in numerous ways and released by different labels).
+
+3. Find all recordings of Chopin's Military Polonaise by second generation students
+of Liszt.
+
+By enabling these types of queries, ClassicalDB will enable a new generation of
+classical music applications like streaming services, library management/tagging apps,
+and relationship data visualization tools.
+
+## Technology Stack
+ClassicalDB is built with full-stack JavaScript:
+
+- Node.js and Express.js handle the API interface and serving the JS SPA.
+
+- Front-end client is a Single Page App (SPA) built using React.js and Flux architecture
+
+- Music metadata is stored in PostgreSQL database and modeled using Sequelize ORM
+
+- Authentication is handled by a MongoDB database and modeled using Mongoose ODM
+
+- Back-End Testing uses Mocha, Chai, Superagent
+
+- Front-End Testing uses Jest and Mocha
+
+- Continuous Integration Testing is done through CircleCI
+
+- Code Coverage Testing is done through Istanbul and Coveralls
+
+- Deployment and Build scripts use Gulp and Browserify
+
+- Hosting is done through Heroku
+
+## Roadmap
+
+### Version 0.1 - Labels and CDs
+Site:
+- Basic design mockup in  Photoshop with "Contribute Data" and "Explore Data" site sections
+- User can enter new Label and CD data via website
+- User can view list of all Labels (and edit individual entries)
+- User can view list of all CDs (and edit individual entries)
+- No user authentication yet (and therefore no Mongo/Mongoose functionality)
+
+API:
+  - define and document basic interface for labels and CDs
+  - developer can perform CRUD operations on labels and CDs
+  - create "API Status" endpoints
+
+Schema:
+
+![ClassicalDB Schema - Version 0.1](docs/schema/classicaldb-schema-version-0.1.png?raw=true "ClassicalDB Schema - Version 0.1")
+
+
+### Future Versions:
+
+Schema:
+
+The following schema will support all relevant metadata for albums
+that contain single-instrument and single-performer works that may
+be standalone pieces or multi-movement works (like Sonatas):
+
+![ClassicalDB Schema - Future Versions](docs/schema/classicaldb-schema-future-versions.png?raw=true "ClassicalDB Schema - Future Versions")
+
+[Schema Details (Google Sheets)](https://docs.google.com/spreadsheets/d/1FxQLvizvrmzBYEUtPd0RtNt8k5xHa1u3jWsfpLUrx-A/edit?usp=sharing)
+
+
+
+<!--
 ## Project Structure
+-->
 
 <!-- Overview
 ```
@@ -70,16 +157,14 @@ FLUX / REACT ARCHITECTURE
 
 ``` -->
 
-# Local Dependencies
+<!--
+## Contributing
+-->
+
+<!--
+## Release History
+-->
 
 
-# Contributing
-
-
-# Release History
-
-
-# Known Issues
-
-
-# Backlog
+## Known Issues
+- add license information
