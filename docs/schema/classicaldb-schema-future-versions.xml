@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+  <group label="Numeric" color="rgb(238,238,170)">
+    <type label="Integer" length="0" sql="INTEGER" quote=""/>
+     <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+     <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+     <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+     <type label="INT" length="0" sql="INT" quote=""/>
+    <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+    <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+    <type label="Single precision" length="0" sql="FLOAT" quote=""/>
+    <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+  </group>
+
+  <group label="Character" color="rgb(255,200,200)">
+    <type label="Char" length="1" sql="CHAR" quote="'"/>
+    <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+    <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+    <type label="Binary" length="1" sql="BINARY" quote="'"/>
+    <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+    <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+  </group>
+
+  <group label="Date &amp; Time" color="rgb(200,255,200)">
+    <type label="Date" length="0" sql="DATE" quote="'"/>
+    <type label="Time" length="0" sql="TIME" quote="'"/>
+    <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+    <type label="Year" length="0" sql="YEAR" quote=""/>
+    <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+  </group>
+
+  <group label="Miscellaneous" color="rgb(200,200,255)">
+    <type label="ENUM" length="1" sql="ENUM" quote=""/>
+    <type label="SET" length="1" sql="SET" quote=""/>
+    <type label="Bit" length="0" sql="bit" quote=""/>
+  </group>
+</datatypes><table x="102" y="52" name="label">
+<row name="id_label" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="label_name" null="0" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>'NULL'</default></row>
+<row name="label_defunct_date" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="label_country" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_label</part>
+</key>
+</table>
+<table x="829" y="52" name="cd">
+<row name="id_cd" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="cd_name" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="cd_release_date" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="cd_country" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="cd_total_discs" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="cd_total_tracks" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="cd_cover_image" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="cd_booklet" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="cd_booklet_text" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_cd</part>
+</key>
+</table>
+<table x="353" y="52" name="labelCode">
+<row name="id_labelCode" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_labelCode_label" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="label" row="id_label" />
+</row>
+<row name="fk_labelCode_cd" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cd" row="id_cd" />
+</row>
+<row name="label_catalog" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="label_series" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_labelCode</part>
+</key>
+</table>
+<table x="102" y="204" name="track">
+<row name="id_track" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_track_cd" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cd" row="id_cd" />
+</row>
+<row name="fk_track_recording" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="recording" row="id_recording" />
+</row>
+<row name="fk_track_mastering_engineer" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="person" row="id" />
+</row>
+<row name="track_disc_number" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="track_number" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="track_mastering_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="track_mastering_tech" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="track_length" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_track</part>
+</key>
+</table>
+<table x="452" y="259" name="recording">
+<row name="id_recording" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_recording_performance" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="performance" row="id" />
+</row>
+<row name="fk_recording_engineer" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="person" row="id" />
+</row>
+<row name="recording_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="recording_date" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="recording_location" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="recording_matrix#" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_recording</part>
+</key>
+</table>
+<table x="131" y="632" name="person">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="person_name_last" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="person_name_first+" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="person_birthdate" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="person_birth_country" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="person_birth_city" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="755" y="302" name="performance">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_performance_movement" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="movement" row="id" />
+</row>
+<row name="performance_setting" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="766" y="655" name="soloist">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_soloist_performance" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="performance" row="id" />
+</row>
+<row name="fk_soloist_performer" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="person" row="id" />
+</row>
+<row name="soloist_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="439" y="473" name="composition">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_composition_composer" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="person" row="id" />
+</row>
+<row name="composition_period" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="composition_date" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="composition_setting" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="composition_genre" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="composition_total_movements" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="760" y="463" name="movement">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_movement_composition" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="composition" row="id" />
+</row>
+<row name="movement_number" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="movement_key" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="movement_tempo" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="movement_genre" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="121" y="464" name="catalog">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fk_catalog_composition" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="composition" row="id" />
+</row>
+<row name="catalog_type" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="catalog_type_num" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="catalog_num" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
