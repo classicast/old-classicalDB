@@ -33,14 +33,66 @@ By enabling these types of queries, ClassicalDB will enable a new generation of
 classical music applications like streaming services, library management/tagging apps,
 and relationship data visualization tools.
 
+## Technology Stack
+ClassicalDB is built with full-stack JavaScript:
+
+- Node.js and Express.js handle the API interface and serving the JS SPA.
+
+- Front-end client is a Single Page App (SPA) built using React.js and Flux architecture
+
+- Music metadata is stored in PostgreSQL database and modeled using Sequelize ORM
+
+- Authentication is handled by a MongoDB database and modeled using Mongoose ODM
+
+- Back-End Testing uses Mocha, Chai, Superagent
+
+- Front-End Testing uses Jest and Mocha
+
+- Continuous Integration Testing is done through CircleCI
+
+- Code Coverage Testing is done through Istanbul and Coveralls
+
+- Deployment and Build scripts use Gulp and Browserify
+
+- Hosting is done through Heroku
+
 ## Roadmap
 
-### Version 0.1
+### Version 0.1 - Labels and CDs
+Site:
+- Basic design mockup in  Photoshop with "Contribute Data" and "Explore Data" site sections
+- User can enter new Label and CD data via website
+- User can view list of all Labels (and edit individual entries)
+- User can view list of all CDs (and edit individual entries)
+- No user authentication yet (and therefore no Mongo/Mongoose functionality)
+
+API:
+  - define and document basic interface for labels and CDs
+  - developer can perform CRUD operations on labels and CDs
+  - create "API Status" endpoints
+
+Schema:
+
+![ClassicalDB Schema - Version 0.1](docs/schema/classicaldb-schema-version-0.1.png?raw=true "ClassicalDB Schema - Version 0.1")
+
+
+### Future Versions:
+
+Schema:
+
+The following schema will support all relevant metadata for albums
+that contain single-instrument and single-performer works that may
+be standalone pieces or multi-movement works (like Sonatas):
+
+![ClassicalDB Schema - Future Versions](docs/schema/classicaldb-schema-future-versions.png?raw=true "ClassicalDB Schema - Future Versions")
+
+[Schema Details (Google Sheets)](https://docs.google.com/spreadsheets/d/1FxQLvizvrmzBYEUtPd0RtNt8k5xHa1u3jWsfpLUrx-A/edit?usp=sharing)
 
 
 
-
+<!--
 ## Project Structure
+-->
 
 <!-- Overview
 ```
@@ -105,16 +157,14 @@ FLUX / REACT ARCHITECTURE
 
 ``` -->
 
-## Local Dependencies
-
-
+<!--
 ## Contributing
+-->
 
-
+<!--
 ## Release History
+-->
 
 
 ## Known Issues
-
-
-## Backlog
+- add license information
